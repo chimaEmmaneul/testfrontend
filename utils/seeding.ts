@@ -2,11 +2,15 @@ import { Product } from "@/types/types";
 
 export function seedLocalStorage(data: Product[]) {
   const storageKey = "products";
-  const existingProduct = getLocalStorageData(storageKey);
+    const isClient = typeof window !== "undefined";
+    if (!isClient) return null;
 
-  if (existingProduct) {
-    return existingProduct;
-  }
+    const existingProduct = getLocalStorageData(storageKey);
+
+    if (existingProduct) {
+      return existingProduct;
+    }
+
   const jsonData = JSON.stringify(data);
   localStorage.setItem(storageKey, jsonData);
 }
