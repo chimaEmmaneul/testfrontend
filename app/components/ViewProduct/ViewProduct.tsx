@@ -27,19 +27,20 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
     category: "",
   });
   const [fileInput, setFileInput] = useState<string | null>(null);
-  const { setIsUpdated } = useProductContext();
 
   const handleOnChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    console.log(name, typeof value);
     setProduct((prevObj) => ({
       ...prevObj,
       [name]: value,
-      image: fileInput as string,
+      // image: fileInput as string,
     }));
   };
 
+  // console.log(product, "init");
   useEffect(() => {
     setIsLoading(true);
     const data = getSingleProduct(id);
@@ -47,13 +48,15 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
 
     setIsLoading(false);
   }, []);
-  console.log(product);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log(file);
     if (file) {
       setFileInput(URL.createObjectURL(file));
+      setProduct((prevObj) => ({
+        ...prevObj,
+        image: URL.createObjectURL(file) as string,
+      }));
     }
   };
 
@@ -66,6 +69,8 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
     return <div>Loading...</div>;
   }
 
+  //{fileInput ? fileInput : product.image}
+
   return (
     <main>
       <div>
@@ -73,9 +78,7 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
           <div className="w-full h-full flex-[3] ">
             <div className="w-full max-h-full ">
               <Image
-                src={
-                  "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
-                }
+                src={product.image}
                 alt="camera"
                 className="mx-auto"
                 width={100}
@@ -115,7 +118,7 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
               <Input
                 label="Product price"
                 id="product-price"
-                type="text"
+                type="number"
                 name="price"
                 value={product?.price as number}
                 onChange={handleOnChange}
@@ -150,7 +153,7 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
                 onClick={handleOnSubmit}
                 className="px-4 py-2 text-sm rounded-md mx-auto bg-blue-500 text-white"
               >
-                Save Product
+                Save Productz
               </button>
             </div>
           </div>

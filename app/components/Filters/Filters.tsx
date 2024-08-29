@@ -8,7 +8,7 @@ const Filters = () => {
   const { filters, setFilters } = useProductContext();
   console.log(filters);
   const handleOnChange = (category: string) => {
-    const isAlreadyChecked = filters.category === category;
+    const isAlreadyChecked = filters.category.toLowerCase() === category;
     if (isAlreadyChecked) {
       setFilters((prev) => ({
         ...prev,
@@ -40,9 +40,12 @@ const Filters = () => {
                   type="checkbox"
                   name=""
                   id=""
-                  checked={filters.category === category.label}
+                  checked={
+                    filters.category.toLowerCase() ===
+                    category.label.toLowerCase()
+                  }
                   className=""
-                  onChange={() => handleOnChange(category.label)}
+                  onChange={() => handleOnChange(category.label.toLowerCase())}
                 />
                 <span>{category.label}</span>
               </button>

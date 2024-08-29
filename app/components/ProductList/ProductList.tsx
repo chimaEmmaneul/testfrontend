@@ -33,7 +33,7 @@ const ProductList = () => {
         <AddProduct closeModal={closeModal} />
       </Modal>
 
-      <div className="flex items-center justify-between my-4">
+      <div className="flex items-center justify-between mt-4 mb-8">
         <h1 className="font-bold text-sm md:text-xl">Browse Products</h1>
         <p
           onClick={() => setIsModalOpen(true)}
@@ -43,7 +43,7 @@ const ProductList = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-x-4 gap-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-x-6 gap-y-8">
         {products
           ? products.map((product: Product) => (
               <ProductListItem {...product} key={product.description} />

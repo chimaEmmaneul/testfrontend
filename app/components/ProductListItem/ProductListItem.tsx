@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useProductContext } from "@/app/context/ProductContext";
 import { Product } from "@/types/types";
@@ -31,24 +31,36 @@ const ProductListItem = ({
     setIsdeleting(false);
     setIsUpdated(!isUpdated);
   };
+  const iconDivRef = useRef<HTMLDivElement | null>(null);
+  // console.log(iconDivRef.current.target);
+  useEffect(() => {
+    // isIcon.current.
+  }, [isIconOpen]);
 
   return (
     <main
+      ref={iconDivRef}
       onMouseEnter={() => setIsIconOpen(true)}
       onMouseLeave={() => setIsIconOpen(false)}
       className="group relative"
     >
       <div
         onClick={() => router.push(`/product/${id}`)}
-        className="rounded-md group-hover:scale-[1.01] duration-150 cursor-pointer bg-white pb-8 overflow-hidden"
+        className="rounded-md group-hover:scale-[1.01] duration-150 cursor-pointer  pb-8 overflow-hidden"
       >
-        <div className="w-full relative aspect-h-1 aspect-w-1">
-          <Image src={Testimage} alt={name} />
+        <div className="w-32 h-[80%] mx-auto overflow-hidden aspect-[75/90] relative ">
+          <Image src={image} alt={name} fill className="mx-auto" />
         </div>
 
         <div className="flex justify-between items-center pt-2 px-2">
-          <p className="capitalize">{name}</p>
+          <p className="capitalize text-sm truncate">{name}</p>
           <p className="font-bold">{formatCurrency(price)}</p>
+        </div>
+
+        <div className="flex items-center justify-center my-2">
+          <button className="bg-neutral-900 w-[70%] text-white rounded-md px-4 py-2">
+            View
+          </button>
         </div>
       </div>
 
