@@ -1,0 +1,90 @@
+import { Product } from "@/types/types";
+
+export const PRODUCT_LIST: Product[] = [
+  {
+    id: 1,
+    name: "Apple iPhone 13",
+    description: "A high-end smartphone with advanced features",
+    image: "https://example.com/iphone13.jpg",
+    price: 999.99,
+    category: "Electronics",
+  },
+  {
+    id: 2,
+    name: "Samsung TV 4K",
+    description: "A high-definition TV with advanced features",
+    image: "https://example.com/samsungtv.jpg",
+    price: 1299.99,
+    category: "Electronics",
+  },
+  {
+    id: 3,
+    name: "Nike Air Max Shoes",
+    description: "A pair of high-quality running shoes",
+    image: "https://example.com/nikeairmax.jpg",
+    price: 120.0,
+    category: "Fashion",
+  },
+  {
+    id: 4,
+    name: "Sony PlayStation 5",
+    description: "A next-generation gaming console",
+    image: "https://example.com/ps5.jpg",
+    price: 499.99,
+    category: "Gaming",
+  },
+  {
+    id: 5,
+    name: "Apple MacBook Air",
+    description: "A lightweight and powerful laptop",
+    image: "https://example.com/macbookair.jpg",
+    price: 999.99,
+    category: "Electronics",
+  },
+  {
+    id: 6,
+    name: "Canon EOS Camera",
+    description: "A high-quality digital camera",
+    image: "https://example.com/canoneos.jpg",
+    price: 799.99,
+    category: "Electronics",
+  },
+  {
+    id: 7,
+    name: "Adidas Superstar Shoes",
+    description: "A classic pair of basketball shoes",
+    image: "https://example.com/adidassuperstar.jpg",
+    price: 80.0,
+    category: "Fashion",
+  },
+  {
+    id: 8,
+    name: "Microsoft Xbox Series X",
+    description: "A next-generation gaming console",
+    image: "https://example.com/xboxseriesx.jpg",
+    price: 499.99,
+    category: "Gaming",
+  },
+  {
+    id: 9,
+    name: "Dell Inspiron Laptop",
+    description: "A budget-friendly and powerful laptop",
+    image: "https://example.com/dellinspiron.jpg",
+    price: 699.99,
+    category: "Electronics",
+  },
+  {
+    id: 10,
+    name: "GoPro Hero Camera",
+    description: "A rugged and waterproof action camera",
+    image: "https://example.com/goprohero.jpg",
+    price: 399.99,
+    category: "Electronics",
+  },
+];
+
+export const CATEGORY_LIST = [
+  { value: "Electronics", label: "Electronics" },
+  { value: "Fashion", label: "Fashion" },
+  { value: "Gaming", label: "Gaming" },
+];
