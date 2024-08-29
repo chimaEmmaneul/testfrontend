@@ -31,15 +31,17 @@ const AddProduct = ({ closeModal }: AddProductProps) => {
     setNewProduct((prevObj) => ({
       ...prevObj,
       [name]: value,
-      image: fileInput as string,
     }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log(file);
     if (file) {
       setFileInput(URL.createObjectURL(file));
+      setNewProduct((prevObj) => ({
+        ...prevObj,
+        image: URL.createObjectURL(file) as string,
+      }));
     }
   };
 
@@ -55,7 +57,7 @@ const AddProduct = ({ closeModal }: AddProductProps) => {
           <div className="w-full h-full flex-[3] ">
             <div className="w-full max-h-full ">
               <Image
-                src={fileInput ? fileInput : camera}
+                src={newProduct.image ? newProduct.image : camera}
                 alt="camera"
                 className="mx-auto"
                 width={100}
@@ -74,7 +76,7 @@ const AddProduct = ({ closeModal }: AddProductProps) => {
                   id="product-image"
                   type="file"
                   name="image"
-                  value={newProduct.image}
+                  value={""}
                   onChange={handleFileChange}
                   placeholder="Product name"
                   className="z-10 absolute top-0 left-0 opacity-0 "
