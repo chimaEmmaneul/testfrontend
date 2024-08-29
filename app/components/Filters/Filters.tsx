@@ -6,7 +6,6 @@ import { formatCurrency } from "@/utils/formatCurrency";
 
 const Filters = () => {
   const { filters, setFilters } = useProductContext();
-  console.log(filters);
   const handleOnChange = (category: string) => {
     const isAlreadyChecked = filters.category.toLowerCase() === category;
     if (isAlreadyChecked) {

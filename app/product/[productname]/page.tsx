@@ -8,9 +8,8 @@ import { getSingleProduct } from "@/app/_actions/actions";
 
 const SingleProduct = ({ params }: { params: { productname: string } }) => {
   const [SingleProduct, setSingleProduct] = useState<Product | null>(null);
-
   useEffect(() => {
-    const data = getSingleProduct(parseInt(params.productname));
+    const data = getSingleProduct(Number(params.productname));
     setSingleProduct(data);
   }, []);
 

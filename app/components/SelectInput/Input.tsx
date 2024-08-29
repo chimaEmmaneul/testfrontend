@@ -20,7 +20,6 @@ const SelectInput: React.FC<SelectInputProps> = ({
   name,
   disabled = false,
 }) => {
-  console.log(value, "select");
   return (
     <div className="w-full">
       {label && (

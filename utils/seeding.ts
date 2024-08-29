@@ -18,6 +18,4 @@ export function getLocalStorageData(storageKey: string | null) {
   return JSON.parse(jsonData!);
 }
 
-// // example usage:
-// const storedProducts = getLocalStorageData("products");
-// console.log(storedProducts);
+

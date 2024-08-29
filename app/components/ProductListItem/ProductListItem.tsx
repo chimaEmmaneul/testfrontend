@@ -32,10 +32,6 @@ const ProductListItem = ({
     setIsUpdated(!isUpdated);
   };
   const iconDivRef = useRef<HTMLDivElement | null>(null);
-  // console.log(iconDivRef.current.target);
-  useEffect(() => {
-    // isIcon.current.
-  }, [isIconOpen]);
 
   return (
     <main

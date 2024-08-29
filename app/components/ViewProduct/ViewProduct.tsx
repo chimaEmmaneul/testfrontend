@@ -32,15 +32,12 @@ const ViewProduct = ({ closeModal, id }: ViewProductProps) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    console.log(name, typeof value);
     setProduct((prevObj) => ({
       ...prevObj,
       [name]: value,
-      // image: fileInput as string,
     }));
   };
 
-  // console.log(product, "init");
   useEffect(() => {
     setIsLoading(true);
     const data = getSingleProduct(id);

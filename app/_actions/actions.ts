@@ -38,6 +38,7 @@ export const deleteProduct = (id: number) => {
 };
 
 export const getSingleProduct = (id: number) => {
+
   const products = getLocalStorageData("products");
   return products.find((product: any) => product.id === id);
 };
